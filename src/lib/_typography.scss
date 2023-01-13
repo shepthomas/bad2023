@@ -1,0 +1,57 @@
+@use "sass:math";
+@use "breakpoints" as b;
+
+//  Fluid type
+//  --------------------------------------------
+
+@function px-to-rem($px) {
+  $rems: math.div($px, 16px) * 1rem;
+  @return $rems;
+}
+
+@function fluid(
+  $min-size,
+  $max-size,
+  $min-breakpoint,
+  $max-breakpoint,
+  $unit: vw
+) {
+  $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
+  $slope-to-unit: $slope * 100;
+  $intercept-rem: px-to-rem($min-size - $slope * $min-breakpoint);
+  $min-size-rem: px-to-rem($min-size);
+  $max-size-rem: px-to-rem($max-size);
+  @return clamp(
+    #{$min-size-rem},
+    #{$slope-to-unit}#{$unit} + #{$intercept-rem},
+    #{$max-size-rem}
+  );
+}
+
+//  Body type styles
+//  --------------------------------------------
+
+body {
+  font-size: 100%;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-kerning: normal;
+  font-kerning: normal;
+  font-feature-settings: "kern";
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-family: "HelveticaNeue", Helvetica, Arial, Verdana, sans-serif;
+  font-weight: 400;
+}
+
+p {
+  margin-bottom: 1em;
+  line-height: 140%;
+}
+
+.t-body {
+  font-size: #{fluid(16px, 24px, b.$xs, b.$xxl)};
+}
+
+.t-emphasis {
+  font-weight: 700;
+}
