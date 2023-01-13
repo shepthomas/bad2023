@@ -1,0 +1,92 @@
+@use "sass:math";
+@use "breakpoints" as b;
+
+@mixin flex-basis($value: auto) {
+  flex-basis: $value;
+  max-width: $value;
+  width: $value;
+}
+
+$breakpoints: (
+  xs: b.$xs,
+  sm: b.$sm,
+  md: b.$md,
+  lg: b.$lg,
+  xl: b.$xl,
+  xxl: b.$xxl,
+);
+
+$col-gutter: 24px;
+
+@mixin breakpoint($name) {
+  @if not map-has-key($breakpoints, $name) {
+    @warn "Warning: `#{$name}` is not a valid breakpoint name.";
+  } @else {
+    @media (min-width: map-get($breakpoints, $name)) {
+      @content;
+    }
+  }
+}
+
+@mixin grid-generate-columns($grid-col-count, $postfix) {
+  @for $i from 0 through $grid-col-count {
+    .col--#{$postfix}-#{$i} {
+      @include flex-basis($i * math.div(100%, $grid-col-count));
+    }
+
+    .offset--#{$postfix}-#{$i} {
+      margin-left: $i * math.div(100%, $grid-col-count);
+    }
+  }
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: calc(
+    100vw - 10vw - env(safe-area-inset-right) - env(safe-area-inset-left)
+  );
+
+  @include breakpoint(sm) {
+    width: calc(100vw - 10vw);
+  }
+
+  @include breakpoint(lg) {
+    width: calc(100vw - 10vw);
+  }
+
+  @include breakpoint(xxxl) {
+    max-width: b.$xxxl;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 calc($col-gutter / 2) * -1;
+}
+
+.col,
+[class*="col--"] {
+  @include flex-basis(100%);
+  padding: 0 calc($col-gutter / 2);
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@include grid-generate-columns(12, "xs");
+
+@include breakpoint(sm) {
+  @include grid-generate-columns(12, "sm");
+}
+@include breakpoint(md) {
+  @include grid-generate-columns(12, "md");
+}
+
+@include breakpoint(lg) {
+  @include grid-generate-columns(12, "lg");
+}
+
+@include breakpoint(xl) {
+  @include grid-generate-columns(12, "xl");
+}

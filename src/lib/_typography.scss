@@ -48,10 +48,52 @@ p {
   line-height: 140%;
 }
 
-.t-body {
-  font-size: #{fluid(16px, 24px, b.$xs, b.$xxl)};
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-bottom: 40px;
+  line-height: 100%;
 }
 
-.t-emphasis {
+.t-caption {
+  font-size: #{fluid(16px, 20px, b.$xs, b.$xxl)};
+}
+
+.t-body {
+  font-size: #{fluid(18px, 24px, b.$xs, b.$xxl)};
+}
+
+.emphasis {
   font-weight: 700;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.t-h5 {
+  font-size: #{fluid(18px, 24px, b.$xs, b.$xxl)};
+  font-weight: 600;
+}
+
+.t-h4 {
+  font-size: #{fluid(24px, 28px, b.$xs, b.$xxl)};
+  font-weight: 600;
+}
+
+.t-h3 {
+  font-size: #{fluid(28px, 40px, b.$xs, b.$xxl)};
+  font-weight: 600;
+}
+
+.t-h2 {
+  font-size: #{fluid(48px, 64px, b.$xs, b.$xxl)};
+  font-weight: 600;
+}
+
+.t-h1 {
+  font-size: #{fluid(64px, 96px, b.$xs, b.$xxl)};
+  font-weight: 600;
 }
