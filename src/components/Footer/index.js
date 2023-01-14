@@ -1,14 +1,16 @@
 import { Container, Grid, Col } from "../Layout";
+import "./style.scss";
 
 export default function Footer() {
+  //  Vars
+
   return (
     <section className="global-footer">
-      <Container>
+      <Container className="content">
         <Grid>
           <Col>
             <span className="copyright t-caption">
-              (Caption) &copy; 2023 Museum of Brisbane. Program is subject to
-              change.
+              &copy; 2023 Museum of Brisbane. Program is subject to change.
             </span>
           </Col>
         </Grid>
