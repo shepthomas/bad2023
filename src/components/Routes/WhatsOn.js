@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Container, Grid, Col } from "../Layout";
-import { SearchField } from "../Search";
+import { PageHero } from "../Heroes";
+import { SearchField, SearchGrid } from "../Search";
 import { events } from "../../data/events";
 
 export default function WhatsOn() {
@@ -54,15 +55,7 @@ export default function WhatsOn() {
 
   return (
     <>
-      <section className="page-header">
-        <Container>
-          <Grid>
-            <Col>
-              <h1 className="t-h1 uppercase">What's On</h1>
-            </Col>
-          </Grid>
-        </Container>
-      </section>
+      <PageHero title="What's On" />
       {/* Search */}
       <section className="events-search">
         <div className="events-search_input">
@@ -80,7 +73,9 @@ export default function WhatsOn() {
       <section className="events-search_grid">
         <Container>
           <Grid>
-            <Col>Grid goes here</Col>
+            <Col>
+              <SearchGrid events={filteredEvents} eventsPerPage={8} />
+            </Col>
           </Grid>
         </Container>
       </section>
