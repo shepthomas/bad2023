@@ -12,6 +12,7 @@
     border: 1px solid c.$black;
     background-color: c.$yellow;
     padding: 24px;
+    z-index: 999;
 
     .menu-items {
       display: flex;
@@ -19,11 +20,14 @@
 
       .menu-item {
         margin-bottom: 8px;
+
         &:last-child {
           margin-bottom: 0;
         }
+
         a {
           color: c.$black;
+          font-size: 18px;
         }
       }
     }

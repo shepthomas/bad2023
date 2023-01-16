@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Container, Grid, Col } from "../Layout";
 import { PageHero } from "../Heroes";
-import { SearchField, SearchGrid } from "../Search";
+import { SearchField, SearchGrid, SearchFilters, Dropdown } from "../Search";
 import { events } from "../../data/events";
 
 export default function WhatsOn() {
@@ -15,9 +15,8 @@ export default function WhatsOn() {
   const [filterKey, setFilterKey] = useState({
     type: [],
   });
-  const [loading, setLoading] = useState(false);
   const [filteredEvents, setFilteredEvents] = useState([]);
-  const [filterPanelOpen, setFilterPanelOpen] = useState(false);
+  // const [filterPanelOpen, setFilterPanelOpen] = useState(false);
 
   //  Filter events
   const filterEvents = useCallback(() => {
@@ -53,6 +52,20 @@ export default function WhatsOn() {
     filterEvents();
   }, [filterEvents]);
 
+  //  Dropdown actions
+  const addOption = (category, label) => {
+    const options = filterKey[category];
+    setFilterKey((filterKey) => ({
+      ...filterKey,
+      [category]: [...options, label],
+    }));
+  };
+
+  const removeOption = (category, label) => {
+    const options = filterKey[category].filter((option) => option !== label);
+    setFilterKey((filterKey) => ({ ...filterKey, [category]: options }));
+  };
+
   return (
     <>
       <PageHero title="What's On" />
@@ -67,17 +80,22 @@ export default function WhatsOn() {
             </Grid>
           </Container>
         </div>
-        <div className="events-search_filter">Filters go here</div>
+        <div className="events-search_filter">
+          <SearchFilters>
+            <Dropdown
+              label="Type"
+              category="type"
+              options={type}
+              filterKey={filterKey}
+              add={addOption}
+              remove={removeOption}
+            />
+          </SearchFilters>
+        </div>
       </section>
       {/* Grid */}
       <section className="events-search_grid">
-        <Container>
-          <Grid>
-            <Col>
-              <SearchGrid events={filteredEvents} eventsPerPage={8} />
-            </Col>
-          </Grid>
-        </Container>
+        <SearchGrid events={filteredEvents} eventsPerPage={8} />
       </section>
       {/* Filter Panel */}
     </>

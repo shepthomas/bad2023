@@ -1,0 +1,83 @@
+@use "../../../lib/color" as c;
+
+.dd-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-right: 8px;
+
+  .dd-button {
+    color: c.$white;
+    box-shadow: 0 0 1px 1px rgba(0, 38, 63, 0.12) inset;
+    background: c.$black;
+    padding: 0 16px;
+    font-size: 16px;
+    border-radius: 24px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 250ms ease;
+
+    &:hover {
+      box-shadow: 0 0 1px 1px rgba(0, 38, 63, 0.48) inset;
+    }
+
+    &.chevron:after {
+      content: "";
+      display: inline-block;
+      width: 10px;
+      height: 6px;
+      background: transparent url("./chevron-down.svg") center no-repeat;
+      margin-left: 8px;
+    }
+
+    &.has-selection {
+      // background-color: #e8f0f7;
+      // border-color: #003057;
+      // background-color: rgba(193, 214, 0, 0.8);
+      // border-color: rgba(193, 214, 0, 1);
+      box-shadow: 0 0 0 2px c.$yellow, 0 0 0 3px c.$black;
+    }
+
+    &.is-open {
+      &.has-selection {
+        box-shadow: 0 0 0 2px c.$yellow, 0 0 0 3px c.$black;
+      }
+
+      &.chevron:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .dd-container {
+    display: block;
+    width: calc(100vw - 96px);
+    max-width: 280px;
+    // max-height: 320px;
+    overflow: hidden;
+    position: absolute;
+    background: c.$white;
+    border-radius: 8px;
+    border: 1px solid c.$black;
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.16);
+    margin-top: 8px;
+    z-index: 999;
+
+    &.is-open {
+      display: block;
+    }
+  }
+
+  .dd-content {
+    padding: 16px 24px;
+    position: relative;
+    max-height: calc(320px - 69px);
+    overflow-y: scroll;
+
+    &.is-long {
+      padding-bottom: 24px;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 .search-field {
+  margin-bottom: 16px;
   &_wrapper {
     position: relative;
     * {
@@ -9,7 +10,7 @@
   &_input {
     -webkit-appearance: none;
     border: none;
-    box-shadow: inset 0 0 0 1px #000;
+    box-shadow: inset 0 0 0 2px #000;
     border-radius: 28px; /* Safari 10 on iOS adds implicit border rounding. */
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -22,7 +23,7 @@
     padding: 16px 104px 16px 16px;
 
     &:focus {
-      outline: 2px solid #000;
+      outline: 1px solid #000;
       outline-offset: 2px;
     }
 
@@ -37,10 +38,15 @@
 
   &_actions {
     display: flex;
-    height: 48px;
+    height: 40px;
     position: absolute;
     right: 8px;
     top: 8px;
+  }
+
+  &_clear {
+    border-right: 1px solid #000;
+    margin-right: 8px;
   }
 
   &_clear button,
@@ -51,16 +57,11 @@
     padding: 0;
     cursor: pointer;
     border-radius: 3px;
-    border: 1px solid #000;
+    border: none;
     background-color: transparent;
     color: #000;
     font-size: 16px !important;
     border-radius: 24px;
-
-    &:focus {
-      outline: 2px solid #000;
-      outline-offset: 2px;
-    }
 
     .label {
       visibility: hidden;

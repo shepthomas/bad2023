@@ -1,0 +1,51 @@
+@use "../../../../lib/color" as c;
+
+.checkbox {
+  display: flex;
+  flex-wrap: nowrap;
+  // align-items: center;
+  padding: 6px 0;
+  cursor: pointer;
+
+  .input {
+    padding-top: 1px;
+
+    .box {
+      width: 16px;
+      height: 16px;
+      border: 1px solid c.$black;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 8px;
+
+      &.is-checked {
+        background-color: c.$yellow;
+      }
+    }
+  }
+
+  .label {
+    color: c.$black;
+    font-size: 16px;
+    line-height: 20px;
+
+    &.is-checked {
+      // color: #282828;
+    }
+
+    &:hover {
+      span {
+        background-position: 0 bottom;
+        background-size: 2px 2px;
+        background-repeat: repeat-x;
+        background-image: linear-gradient(
+          to bottom,
+          transparent 50%,
+          rgba(118, 118, 118, 0.4) 50%
+        );
+      }
+    }
+  }
+}
