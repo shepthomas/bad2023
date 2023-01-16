@@ -44,7 +44,7 @@ export default function SearchGrid({ events = [], eventsPerPage }) {
         {visible <= totalEvents && (
           <div className="search-grid_more">
             <div className="remaining">
-              Showing {visible - 1} of {totalEvents}
+              Showing {visible} of {totalEvents}
             </div>
             <Button
               type="primary-blue"

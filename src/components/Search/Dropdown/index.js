@@ -19,7 +19,7 @@ const container = {
     opacity: 0,
     y: -4,
     transition: {
-      duration: 0.15,
+      duration: 0,
     },
     transitionEnd: {
       display: "none",
