@@ -1,0 +1,31 @@
+@use "../../lib/color" as c;
+
+.g-header {
+  &_wrapper {
+    position: relative;
+  }
+  &_menu {
+    position: fixed;
+    top: 20px;
+    right: 5vw;
+    display: flex;
+    border: 1px solid c.$black;
+    background-color: c.$yellow;
+    padding: 24px;
+
+    .menu-items {
+      display: flex;
+      flex-direction: column;
+
+      .menu-item {
+        margin-bottom: 8px;
+        &:last-child {
+          margin-bottom: 0;
+        }
+        a {
+          color: c.$black;
+        }
+      }
+    }
+  }
+}
