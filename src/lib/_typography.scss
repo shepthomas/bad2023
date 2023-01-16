@@ -61,6 +61,11 @@ h5 {
   font-size: #{fluid(16px, 20px, b.$xs, b.$xxl)};
 }
 
+.t-ui {
+  font-size: #{fluid(16px, 20px, b.$xs, b.$xxl)};
+  line-height: 24px;
+}
+
 .t-body {
   font-size: #{fluid(18px, 24px, b.$xs, b.$xxl)};
 }
