@@ -2,16 +2,33 @@
 
 .card-event {
   display: flex;
+  justify-content: space-between;
   width: 100%;
   margin-bottom: 8px;
 
   @media (min-width: b.$sm) {
     flex-direction: column;
+    margin: 0 8px 32px;
+    width: calc(((6 / 12) * 100%) - 16px);
+  }
+
+  @media (min-width: b.$md) {
+    width: calc(((4 / 12) * 100%) - 16px);
+  }
+
+  @media (min-width: b.$lg) {
+    width: calc(((3 / 12) * 100%) - 16px);
+  }
+
+  @media (min-width: b.$xl) {
+    width: calc(((2 / 12) * 100%) - 16px);
   }
 
   a {
     width: 100%;
     display: flex;
+    text-decoration: none;
+    color: #000;
 
     @media (min-width: b.$sm) {
       flex-direction: column;
@@ -42,6 +59,8 @@
     margin-bottom: 16px;
     .title {
       margin-bottom: 8px;
+      font-size: 18px;
+      line-height: 24px;
     }
     .date {
       font-size: 18px;
@@ -51,7 +70,10 @@
     display: none;
 
     @media (min-width: b.$sm) {
-      display: block;
+      display: flex;
+    }
+    .tag {
+      margin-right: 8px;
     }
   }
 }
