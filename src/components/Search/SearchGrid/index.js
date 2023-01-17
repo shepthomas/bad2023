@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "../../Buttons";
+import Card from "../Card";
 import "./style.scss";
 
 export default function SearchGrid({ events = [], eventsPerPage }) {
@@ -38,7 +39,7 @@ export default function SearchGrid({ events = [], eventsPerPage }) {
         </div>
         <div className="search-grid_inner">
           {editedEvents.slice(0, visible).map((data, i) => {
-            return <div key={i}>{data.name}</div>;
+            return <Card ky={i} title={data.name} />;
           })}
         </div>
         {visible <= totalEvents && (
@@ -47,7 +48,7 @@ export default function SearchGrid({ events = [], eventsPerPage }) {
               Showing {visible} of {totalEvents}
             </div>
             <Button
-              type="primary-blue"
+              type="primary"
               label={loading ? "Loading..." : "Show More"}
               onClick={handleShowMore}
             />

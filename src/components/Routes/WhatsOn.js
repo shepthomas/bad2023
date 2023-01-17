@@ -9,6 +9,8 @@ export default function WhatsOn() {
   const type = [
     { label: "Exhibition", value: "exhibition" },
     { label: "Experience", value: "experience" },
+    { label: "Tour", value: "tour" },
+    { label: "Open Studio", value: "open-studio" },
   ];
 
   //  State
