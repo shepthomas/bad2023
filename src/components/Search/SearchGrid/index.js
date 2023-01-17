@@ -39,7 +39,7 @@ export default function SearchGrid({ events = [], eventsPerPage }) {
         </div>
         <div className="search-grid_inner">
           {editedEvents.slice(0, visible).map((data, i) => {
-            return <Card ky={i} title={data.name} />;
+            return <Card key={i} title={data.name} />;
           })}
         </div>
         {visible <= totalEvents && (
