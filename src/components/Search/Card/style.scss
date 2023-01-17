@@ -36,8 +36,9 @@
   }
   .media {
     background: black;
-    width: 80px;
+    flex-basis: 80px;
     margin-right: 16px;
+    flex-shrink: 0;
 
     @media (min-width: b.$sm) {
       width: 100%;
