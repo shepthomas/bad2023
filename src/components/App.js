@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import { Home, WhatsOn } from "./Routes";
+import { Home, WhatsOn, Event } from "./Routes";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import "./App.scss";
@@ -12,6 +12,7 @@ function App() {
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/whats-on" element={<WhatsOn />} />
+        <Route path="/events/:id" element={<Event />} />
       </Routes>
       <Footer />
     </div>

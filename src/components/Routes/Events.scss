@@ -1,0 +1,17 @@
+.event-content {
+  padding: 60px 0 120px;
+  .sidebar {
+    position: relative;
+  }
+  .sidebar_content {
+    position: sticky;
+    top: 40px;
+  }
+}
+.event-related_grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: stretch;
+  margin: 0 -8px 32px;
+}

@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import Tag from "./Tag";
 import "./style.scss";
 
-export default function Card({ title }) {
+export default function Card({ title, slug }) {
   return (
     <div className="card-event">
-      <Link to={`/`}>
+      <Link to={`/events/${slug}`}>
         <div className="media">
           <div className="aspect-ratio"></div>
         </div>
