@@ -16,7 +16,7 @@ export default function Event() {
   }
   let relatedEvents = copyOfEvents.sort(() => 0.5 - Math.random()).slice(0, 3);
   console.log(index);
-  const { name, description, location } = event;
+  const { description, location } = event;
 
   return (
     <div className="event">

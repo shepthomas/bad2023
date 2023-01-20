@@ -9,7 +9,7 @@ export default function StickyHeader({ title }) {
   //  Lifecycle
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
+      // const scrollPosition = window.scrollY;
       //  Page menu sticky
       if (bar.current.getBoundingClientRect().top <= 0) {
         setSticky(true);
