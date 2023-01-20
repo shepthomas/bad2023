@@ -1,11 +1,20 @@
 .event-content {
   padding: 60px 0 120px;
+
   .sidebar {
     position: relative;
   }
   .sidebar_content {
     position: sticky;
-    top: 40px;
+    top: 120px;
+    line-height: 140%;
+    margin-bottom: 40px;
+    .location {
+      margin-bottom: 8px;
+    }
+  }
+  .description {
+    line-height: 140%;
   }
 }
 .event-related_grid {

@@ -5,21 +5,18 @@
     position: relative;
   }
   &_menu {
-    position: fixed;
-    top: 20px;
-    right: 5vw;
     display: flex;
-    border: 1px solid c.$black;
     background-color: c.$yellow;
-    padding: 24px;
+    padding: 24px 0 0;
     z-index: 999;
 
     .menu-items {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
 
       .menu-item {
         margin-bottom: 8px;
+        margin-left: 8px;
 
         &:last-child {
           margin-bottom: 0;

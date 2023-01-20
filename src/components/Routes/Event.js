@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
-import { events } from "../../data/events.js";
-import { Card } from "../Search";
 import { Container, Grid, Col } from "../Layout";
+import { EventHero } from "../Heroes";
+import { Card } from "../Search";
+import { events } from "../../data/events.js";
 import "./Events.scss";
 
 export default function Event() {
@@ -19,23 +20,31 @@ export default function Event() {
 
   return (
     <div className="event">
-      <div className="event-header">
-        <Container>{name}</Container>
-      </div>
+      <EventHero title={event.name} type={event.type} />
       <div className="event-content">
         <Container>
           <Grid>
-            <Col sm="6" className="sidebar">
-              <div className="sidebar_content">
-                <div className="location t-h5 uppercase">Where</div>
+            <Col sm="5" md="4" lg="3" className="sidebar">
+              <div className="sidebar_content t-caption">
+                <div className="location uppercase emphasis">Where</div>
                 {location.name !== "" && (
                   <div className="name">{location.name}</div>
                 )}
-                <div className="address">{location.address}</div>
-                <div className="suburb">{location.suburb}</div>
+                {location.address !== "" && (
+                  <div className="address">{location.address}</div>
+                )}
+                {location.suburb !== "" && (
+                  <div className="suburb">{location.suburb}</div>
+                )}
               </div>
             </Col>
-            <Col sm="6">
+            <Col
+              sm="6"
+              smOffset="1"
+              mdOffset="2"
+              xlOffset="1"
+              className="description"
+            >
               {description} {description} {description} {description}{" "}
               {description} {description}
             </Col>
